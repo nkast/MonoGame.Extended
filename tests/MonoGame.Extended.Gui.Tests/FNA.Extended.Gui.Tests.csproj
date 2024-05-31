@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Remove="MonoGame.Framework.DesktopGL" />
+
+    <ProjectReference Include="..\..\..\FNA\FNA.NetStandard.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\source\MonoGame.Extended.Gui\FNA.Extended.Gui.csproj" />
+  </ItemGroup>
+
+</Project>

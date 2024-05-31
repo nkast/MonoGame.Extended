@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>It makes FNA more awesome.</Description>
+    <PackageTags>fna extended pipeline bmfont tiled texture atlas input viewport fps shapes sprite</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Remove="MonoGame.Framework.DesktopGL" />
+
+    <ProjectReference Include="..\..\..\FNA\FNA.NetStandard.csproj">
+	</ProjectReference>
+  </ItemGroup>
+
+</Project>

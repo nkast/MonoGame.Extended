@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>An event based input system to FNA more awesome.</Description>
+    <PackageTags>fna input event based listeners</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Remove="MonoGame.Framework.DesktopGL" />
+
+    <ProjectReference Include="..\..\..\FNA\FNA.NetStandard.csproj">
+	</ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MonoGame.Extended\FNA.Extended.csproj" />
+  </ItemGroup>
+
+</Project>

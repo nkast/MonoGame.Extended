@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Animations to makes FNA more awesome.</Description>
+    <PackageTags>fna animations spritesheet sprite</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Remove="MonoGame.Framework.DesktopGL" />
+
+    <ProjectReference Include="..\..\..\FNA\FNA.NetStandard.csproj">
+	</ProjectReference>
+</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MonoGame.Extended\FNA.Extended.csproj" />
+  </ItemGroup>
+
+</Project>
