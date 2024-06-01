@@ -1,5 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup>
+    <DefineConstants>$(DefineConstants);KNI</DefineConstants>
+  </PropertyGroup>
+    
   <ItemGroup>
     <Content Include="$(ArtifactsPath)/bin/Kni.Extended.Content.Pipeline/release/*.dll" Pack="True" PackagePath="tools" />
   </ItemGroup>
