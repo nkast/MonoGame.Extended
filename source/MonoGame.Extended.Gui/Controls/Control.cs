@@ -226,7 +226,7 @@ namespace MonoGame.Extended.Gui.Controls
             var font = Font ?? context.DefaultFont;
             var textSize = (Size)font.GetStringRectangle(text ?? string.Empty, Vector2.Zero).Size;
             var destinationRectangle = LayoutHelper.AlignRectangle(horizontalAlignment, verticalAlignment, textSize, targetRectangle);
-            var textPosition = destinationRectangle.Location.ToVector2();
+            var textPosition = new Vector2(destinationRectangle.Location.X, destinationRectangle.Location.Y);
             var textInfo = new TextInfo(text, font, textPosition, textSize, TextColor, targetRectangle);
             return textInfo;
         }

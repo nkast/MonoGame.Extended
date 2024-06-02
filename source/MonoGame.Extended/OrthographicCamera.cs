@@ -190,7 +190,7 @@ namespace MonoGame.Extended
 
         public ContainmentType Contains(Point point)
         {
-            return Contains(point.ToVector2());
+            return Contains(new Vector2(point.X, point.Y));
         }
 
         public override ContainmentType Contains(Vector2 vector2)

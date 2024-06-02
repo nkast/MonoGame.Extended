@@ -182,7 +182,7 @@ namespace MonoGame.Extended.Gui
 
         private void OnPointerMoved(PointerEventArgs args)
         {
-            CursorPosition = args.Position.ToVector2();
+            CursorPosition = new Vector2(args.Position.X, args.Position.Y);
 
             if (ActiveScreen == null || !ActiveScreen.IsVisible)
                 return;

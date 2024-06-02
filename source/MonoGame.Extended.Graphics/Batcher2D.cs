@@ -132,7 +132,9 @@ namespace MonoGame.Extended.Graphics
         /// <param name="drawCall">The draw call information.</param>
         protected override void InvokeDrawCall(ref DrawCallInfo drawCall)
         {
-            GraphicsDevice.DrawIndexedPrimitives(drawCall.PrimitiveType, 0, drawCall.StartIndex, drawCall.PrimitiveCount);
+            int minVertexIndex = 0;
+            int numVertices = _vertexBuffer.VertexCount;
+            GraphicsDevice.DrawIndexedPrimitives(drawCall.PrimitiveType, 0, minVertexIndex, numVertices, drawCall.StartIndex, drawCall.PrimitiveCount);
         }
 
         /// <summary>
