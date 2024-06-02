@@ -15,15 +15,37 @@ namespace MonoGame.Extended.Input
             _previousKeyboardState = previousKeyboardState;
         }
 
-        public bool CapsLock => _currentKeyboardState.CapsLock;
-        public bool NumLock => _currentKeyboardState.NumLock;
+        public bool CapsLock
+        {
+#if FNA
+            get { return _currentKeyboardState.IsKeyDown(Keys.CapsLock); }
+#else
+            get { return _currentKeyboardState.CapsLock; }
+#endif
+        }
+        public bool NumLock
+        {
+#if FNA
+            get { return _currentKeyboardState.IsKeyDown(Keys.NumLock); }
+#else
+            get { return _currentKeyboardState.CapsLock; }
+#endif
+        }
         public bool IsShiftDown() => _currentKeyboardState.IsKeyDown(Keys.LeftShift) || _currentKeyboardState.IsKeyDown(Keys.RightShift);
         public bool IsControlDown() => _currentKeyboardState.IsKeyDown(Keys.LeftControl) || _currentKeyboardState.IsKeyDown(Keys.RightControl);
         public bool IsAltDown() => _currentKeyboardState.IsKeyDown(Keys.LeftAlt) || _currentKeyboardState.IsKeyDown(Keys.RightAlt);
         public bool IsKeyDown(Keys key) => _currentKeyboardState.IsKeyDown(key);
         public bool IsKeyUp(Keys key) => _currentKeyboardState.IsKeyUp(key);
         public Keys[] GetPressedKeys() => _currentKeyboardState.GetPressedKeys();
-        public void GetPressedKeys(Keys[] keys) => _currentKeyboardState.GetPressedKeys(keys);
+        public void GetPressedKeys(Keys[] keys)
+        {
+#if FNA
+            var pressedKeys = _currentKeyboardState.GetPressedKeys();
+            Array.Copy(pressedKeys, keys, pressedKeys.Length);
+#else
+            return _currentKeyboardState.GetPressedKeys(keys);
+#endif
+        }
       
         /// <summary>
         /// Gets whether the given key was down on the previous state, but is now up.
@@ -55,6 +77,13 @@ namespace MonoGame.Extended.Input
         /// <returns>true if the key was pressed this state-change, otherwise false.</returns>
         public readonly bool IsKeyPressed(Keys key) => _previousKeyboardState.IsKeyUp(key) && _currentKeyboardState.IsKeyDown(key);
 
-        public bool WasAnyKeyJustDown() => _previousKeyboardState.GetPressedKeyCount() > 0;
+        public bool WasAnyKeyJustDown()
+        {
+#if FNA
+            return _previousKeyboardState.GetPressedKeys().Length > 0;
+#else
+            return _previousKeyboardState.GetPressedKeyCount() > 0;
+#endif
+        }
    }
 }
