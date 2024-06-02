@@ -1,5 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup>
+    <DefineConstants>$(DefineConstants);KNI</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Remove="MonoGame.Framework.DesktopGL" />
 
