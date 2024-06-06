@@ -22,6 +22,7 @@ namespace MonoGame.Extended.Tests.Content
             Assert.True(ContentReaderExtensions.ShortenRelativePath(input) == expectedoutput);
         }
 
+#if !FNA
         // Test added for issue #633
         // https://github.com/craftworkgames/MonoGame.Extended/issues/633
         //
@@ -45,5 +46,6 @@ namespace MonoGame.Extended.Tests.Content
 
             Assert.Equal(expected, actual);
         }
+#endif
     }
 }
